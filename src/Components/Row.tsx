@@ -1,15 +1,13 @@
-import React from 'react';
 import type { CustomerDataType } from '../getData';
 
 interface RowPropsType {
     rowData: CustomerDataType;
-    onRowClick: () => void;
-    isExpanded: boolean;
+    onRowClick: (d: CustomerDataType) => void;
 }
 
 export default function Row(props: RowPropsType) {
     return (
-    <tr onClick={props.onRowClick}>
+    <tr onClick={() => {props.onRowClick(props.rowData)}}>
         <td>
             {props.rowData.name}
         </td>
@@ -28,24 +26,5 @@ export default function Row(props: RowPropsType) {
         <td>
             {props.rowData.avgDailyWaterConsumption}
         </td>
-        {!props.isExpanded && <td>
-            {props.rowData.location}
-        </td>}
-        {props.isExpanded && 
-        <>
-        <td>
-            {props.rowData.phoneNumber}
-        </td>
-        <td>
-            {props.rowData.favColor}
-        </td>
-        <td>
-            {props.rowData.whatsBest}
-        </td>
-        <td>
-            {props.rowData.educationLevel}
-        </td>
-        </>
-        }
     </tr>);
 }

@@ -11,7 +11,7 @@ const createFakeRowData = () => ({
   phoneNumber: faker.phone.number(),
   favColor: faker.color.human(),
   whatsBest: faker.random.words(),
-  educationLevel: "College",
+  educationLevel: faker.helpers.arrayElement(['High school', 'College', 'Masters Program', 'Doctorate']),
 });
 
 export interface CustomerDataType {
