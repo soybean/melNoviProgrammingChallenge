@@ -15,9 +15,9 @@ export interface CustomerDataType {
   email: string,
   age: string,
   occupation: string,
-  numberOfCats: number,
-  avgDailyWaterConsumption: number,
-  location: number,
+  numberOfCats: string,
+  avgDailyWaterConsumption: string,
+  location: string,
 }
 
 export default () => Array.from({ length: 100 }, createFakeRowData);
