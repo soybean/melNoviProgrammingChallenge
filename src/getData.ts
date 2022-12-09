@@ -8,6 +8,10 @@ const createFakeRowData = () => ({
   numberOfCats: faker.random.numeric(1),
   avgDailyWaterConsumption: faker.random.numeric(2),
   location: faker.address.city(),
+  phoneNumber: faker.phone.number(),
+  favColor: faker.color.human(),
+  whatsBest: faker.random.words(),
+  educationLevel: "College",
 });
 
 export interface CustomerDataType {
@@ -18,6 +22,10 @@ export interface CustomerDataType {
   numberOfCats: string,
   avgDailyWaterConsumption: string,
   location: string,
+  phoneNumber: string,
+  favColor: string,
+  whatsBest: string,
+  educationLevel: string,
 }
 
 export default () => Array.from({ length: 100 }, createFakeRowData);

@@ -3,11 +3,13 @@ import type { CustomerDataType } from '../getData';
 
 interface RowPropsType {
     rowData: CustomerDataType;
+    onRowClick: () => void;
+    isExpanded: boolean;
 }
 
 export default function Row(props: RowPropsType) {
     return (
-    <tr>
+    <tr onClick={props.onRowClick}>
         <td>
             {props.rowData.name}
         </td>
@@ -26,8 +28,24 @@ export default function Row(props: RowPropsType) {
         <td>
             {props.rowData.avgDailyWaterConsumption}
         </td>
-        <td>
+        {!props.isExpanded && <td>
             {props.rowData.location}
+        </td>}
+        {props.isExpanded && 
+        <>
+        <td>
+            {props.rowData.phoneNumber}
         </td>
+        <td>
+            {props.rowData.favColor}
+        </td>
+        <td>
+            {props.rowData.whatsBest}
+        </td>
+        <td>
+            {props.rowData.educationLevel}
+        </td>
+        </>
+        }
     </tr>);
 }
